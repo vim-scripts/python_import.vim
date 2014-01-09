@@ -1,6 +1,6 @@
-" python_import v0.1
+" python_import v0.2
 "
-" copyright 2007 Jason Lunz <lunz@falooley.org>
+" copyright 2014 Jason Lunz <lunz@acm.org>
 "
 " This program is free software; you can redistribute it and/or
 " modify it under the terms of the GNU General Public License
@@ -18,10 +18,10 @@
 " In Normal mode, it operates on the current paragraph.
 " In Visual mode, it operates on the selected range.
 
-if exists("b:did_ftplugin")
-	finish
-endif
-let b:did_ftplugin = 1
+"if exists("b:did_ftplugin")
+"	finish
+"endif
+"let b:did_ftplugin = 1
 
 if exists("loaded_PyImport")
 	finish
@@ -42,11 +42,8 @@ function Cleanup() range
 :'<,'> python << ENDPY
 from copy import deepcopy
 from itertools import chain
-from optparse import OptionParser
-from sys import argv
 from token import NAME
 from tokenize import generate_tokens
-from unittest import main as test, TestCase
 from vim import current
 
 class ImportParseException(Exception):
